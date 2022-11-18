@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.DAO;
 import model.JavaBeans;
 
-@WebServlet(urlPatterns = {"/Controller", "/main", "/insert"})
+@WebServlet(urlPatterns = { "/Controller", "agenda.jsp", "/insert"})
 public class Controller extends HttpServlet {
     private static final long serialVersionUID = 1L;
     DAO dao = new DAO();
@@ -25,12 +25,12 @@ public class Controller extends HttpServlet {
             throws ServletException, IOException {
         String action = request.getServletPath();
         System.out.println(action);
-        if (action.equals("/main")) {
+        if (action.equals("agenda.jsp")) {
             contatos(request, response);
-        } else if (action.equals("/insert")) {
+        } else if (action.equals("insert")) {
             novoContato(request, response);
         } else {
-            response.sendRedirect("/index.html");
+            response.sendRedirect("index.html");
 
         }
     }

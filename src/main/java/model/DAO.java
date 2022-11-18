@@ -9,7 +9,7 @@ public class DAO {
 	private String url = "jdbc:mysql://127.0.0.1:3306/dbagenda?useTimezone=true&serverTimezone=UTC";
 
 	private String user = "root";
-	private String password = "@dmin12#$";
+	private String password = "";
 
 	private Connection conectar() {
 		Connection con = null;

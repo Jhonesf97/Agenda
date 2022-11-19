@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,43 +11,43 @@ import javax.servlet.http.HttpServletResponse;
 import model.DAO;
 import model.JavaBeans;
 
-@WebServlet(urlPatterns = { "/Controller", "agenda.jsp", "/insert"})
+@WebServlet(urlPatterns = { "/Controller", "agenda.jsp", "/insert" })
 public class Controller extends HttpServlet {
-    private static final long serialVersionUID = 1L;
-    DAO dao = new DAO();
-    JavaBeans contato = new JavaBeans();
+	private static final long serialVersionUID = 1L;
+	DAO dao = new DAO();
+	JavaBeans contato = new JavaBeans();
 
-    public Controller() {
-        super();
+	public Controller() {
+		super();
 
-    }
+	}
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        String action = request.getServletPath();
-        System.out.println(action);
-        if (action.equals("agenda.jsp")) {
-            contatos(request, response);
-        } else if (action.equals("insert")) {
-            novoContato(request, response);
-        } else {
-            response.sendRedirect("index.html");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String action = request.getServletPath();
+		System.out.println(action);
+		if (action.equals("agenda.jsp")) {
+			contatos(request, response);
+		} else if (action.equals("insert")) {
+			novoContato(request, response);
+		} else {
+			response.sendRedirect("index.html");
 
-        }
-    }
+		}
+	}
 
-    protected void contatos(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.sendRedirect("agenda.jsp");
-    }
+	protected void contatos(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		response.sendRedirect("agenda.jsp");
+	}
 
-    protected void novoContato(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+	protected void novoContato(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-        // Teste
-        contato.setNome(request.getParameter("nome"));
-        contato.setFone(request.getParameter("fone"));
-        contato.setEmail(request.getParameter("email"));
+		// Teste
+		contato.setNome(request.getParameter("nome"));
+		contato.setFone(request.getParameter("fone"));
+		contato.setEmail(request.getParameter("email"));
 
-    }
+	}
 }
